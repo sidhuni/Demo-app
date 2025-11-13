@@ -1,32 +1,26 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  # The name you specified in the CLI
-  name: demo-app-argo
-  # Usually set to the namespace where ArgoCD is running (e.g., 'argocd')
-  namespace: argocd 
+  name: myapp-argo-application
+  namespace: argocd
 spec:
-  project: default # Default ArgoCD project unless you created a new one
-  
-  # --- Destination (Your Rancher Desktop Cluster) ---
-  destination:
-    # Your Rancher Desktop Kubernetes API server URL
-    server: https://kubernetes.default.svc 
-    # The target namespace for your application resources
-    namespace: default 
+  project: default
 
-  # --- Source (Your Git Repository and Helm Chart Path) ---
   source:
-    # Your Git repository URL
-    repoURL: https://github.com/sidhuni/Demo-app.git 
-    # The directory *within* the repository where your Helm chart is located
-    path: templates
-    # Assumes you want to track the main/latest branch/commit
-    targetRevision: HEAD 
-    
-  # --- Synchronization Policy ---
+    repoURL: https://github.com/sidhuni/argo.git
+    targetRevision: HEAD
+    path: template
+    # If the 'dev' directory contains a Helm chart, you can optionally add a 'helm:' block here 
+    # to override values (e.g., image tags, replica counts).
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: demo
+
   syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+
     automated:
-      # Corresponds to '--sync-policy automated'
-      prune: true
       selfHeal: true
+      prune: true
