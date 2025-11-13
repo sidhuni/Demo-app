@@ -5,26 +5,16 @@ metadata:
   namespace: argocd
 spec:
   project: default
-
   source:
     repoURL: https://github.com/sidhuni/Demo-app.git
-    targetRevision: HEAD        # or a branch like 'main'
-    path: dev              # path to your Helm chart inside the repo
-    helm:
-      valueFiles:
-        - values.yaml
-      parameters:
-        - name: replicaCount
-          value: "2"
-
+    targetRevision: main
+    path: Demo-App   # 👈 folder where Chart.yaml is
   destination:
     server: https://kubernetes.default.svc
-    namespace: default          # or your custom namespace
-
+    namespace: default
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
-      - ApplyOutOfSyncOnly=true
