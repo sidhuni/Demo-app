@@ -11,7 +11,7 @@ spec:
     path: templates   # 👈 folder where Chart.yaml is
   destination:
     server: https://kubernetes.default.svc
-    namespace: demo
+    namespace: default
   syncPolicy:
     automated:
       prune: true
