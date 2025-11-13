@@ -9,7 +9,7 @@ spec:
   source:
     repoURL: https://github.com/sidhuni/Demo-app.git
     targetRevision: main
-    path: demo-app/templates         # 👈 path to your Helm chart folder inside the repo
+    path:templates         # 👈 path to your Helm chart folder inside the repo
     helm:
       releaseName: demo
       valueFiles:
