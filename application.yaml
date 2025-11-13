@@ -7,7 +7,7 @@ spec:
   project: default
 
   source:
-    repoURL: https://github.com/sidhuni/argo.git
+    repoURL: https://github.com/sidhuni/Demo-app.git
     targetRevision: HEAD
     path: template
     # If the 'dev' directory contains a Helm chart, you can optionally add a 'helm:' block here 
