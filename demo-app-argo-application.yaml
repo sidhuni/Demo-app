@@ -8,10 +8,10 @@ spec:
   source:
     repoURL: https://github.com/sidhuni/Demo-app.git
     targetRevision: main
-    path: Demo-App   # 👈 folder where Chart.yaml is
+    path: templates   # 👈 folder where Chart.yaml is
   destination:
     server: https://kubernetes.default.svc
-    namespace: default
+    namespace: demo
   syncPolicy:
     automated:
       prune: true
