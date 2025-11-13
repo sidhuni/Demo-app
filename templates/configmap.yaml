@@ -3,5 +3,6 @@ kind: ConfigMap
 metadata:
   name: {{ include "demo-app.fullname" . }}-config
 data:
-  app.conf: 
-    key=value
+  app.properties: |
+    database_url={{ .Values.database.url }}
+    log_level={{ .Values.app.logLevel }}
