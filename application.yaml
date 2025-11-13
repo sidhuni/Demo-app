@@ -20,7 +20,7 @@ spec:
     # Your Git repository URL
     repoURL: https://github.com/sidhuni/Demo-app.git 
     # The directory *within* the repository where your Helm chart is located
-    path: demo-app
+    path: templates
     # Assumes you want to track the main/latest branch/commit
     targetRevision: HEAD 
     
