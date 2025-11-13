@@ -19,7 +19,7 @@ spec:
 
   destination:
     server: https://kubernetes.default.svc
-    namespace: default          # or your custom namespace
+    namespace: demo          # or your custom namespace
 
   syncPolicy:
     automated:
