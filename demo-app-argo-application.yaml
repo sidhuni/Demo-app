@@ -9,7 +9,7 @@ spec:
   source:
     repoURL: https://github.com/sidhuni/Demo-app.git
     targetRevision: HEAD        # or a branch like 'main'
-    path: demo-app              # path to your Helm chart inside the repo
+    path: dev              # path to your Helm chart inside the repo
     helm:
       valueFiles:
         - values.yaml
@@ -19,7 +19,7 @@ spec:
 
   destination:
     server: https://kubernetes.default.svc
-    namespace: demo          # or your custom namespace
+    namespace: default          # or your custom namespace
 
   syncPolicy:
     automated:
