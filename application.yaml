@@ -1,0 +1,30 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: demo-app-argo
+  namespace: argocd
+spec:
+  project: default
+
+  source:
+    repoURL: https://github.com/sidhuni/Demo-app.git
+    targetRevision: HEAD        # or a branch like 'main'
+    path: demo-app              # path to your Helm chart inside the repo
+    helm:
+      valueFiles:
+        - values.yaml
+      parameters:
+        - name: replicaCount
+          value: "2"
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default          # or your custom namespace
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+      - ApplyOutOfSyncOnly=true
