@@ -9,7 +9,7 @@ spec:
   source:
     repoURL: https://github.com/sidhuni/Demo-app.git
     targetRevision: HEAD
-    path: template
+    path: templates
     # If the 'dev' directory contains a Helm chart, you can optionally add a 'helm:' block here 
     # to override values (e.g., image tags, replica counts).
 
